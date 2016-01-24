@@ -7,12 +7,12 @@
 	(If you want to change it to be used from inside this folder change base to '..')
 	Put your own get key and post key and put those in your ROBLOX sending file.
 	*/
-	$getKey = '';
-	$postKey = '';
+	$getKey = 'mygetkey1';
+	$postKey = 'mygetkey2';
 	if (!$_GET || !array_key_exists('key',$_GET) || $_GET['key'] != $getKey) {
 		die('FAILURE: Incorrect/missing validation key.');
 	}
-	$base = './roblox-bots-master';
+	$base = '..';
 	include_once $base.'/Includes/getRoles.php';
 	include_once $base.'/Includes/login.php';
 	include_once $base.'/Includes/getPostData.php';
