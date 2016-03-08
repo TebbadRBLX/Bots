@@ -1,0 +1,38 @@
+<?php
+
+use Discord\Discord;
+use Discord\WebSockets\Event;
+use Discord\WebSockets\WebSocket;
+
+include '../vendor/autoload.php';
+if ($argc < 3) {
+    echo 'You must pass your Email and Password into the cmdline. Example: php basic.php <email> <password>';
+    die(1);
+}
+
+$discord = new Discord($argv[1], $argv[2]);
+
+$ws = new WebSocket($discord);
+
+$ws->on('ready', function ($discord) use ($ws) {
+  
+    echo 'Discord WebSocket is ready!'.PHP_EOL;
+
+    $ws->on(Event::MESSAGE_CREATE, function ($message, $discord, $newdiscord) {
+    if (strpos($message->content, '/cmds') !== false) {
+      $reply = <<<'EOF'
+      `/shout [MESSAGE]` - Shouts a message in the SGC Main Group
+      `/cha
+      L
+      L
+      O
+      EOF;
+    } elseif(strpos($message->contenct, '/shout' !== false) {
+      $reply = 
+    }
+        
+        echo $reply.PHP_EOL; // Finally, echo the message with a PHP end of line.
+    });
+});
+// Now we will run the ReactPHP Event Loop!
+$ws->run();
